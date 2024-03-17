@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MockLogin from "./components/MockLogin/MockLogin.tsx";
 import { IdProvider } from "./Context/IdContext.tsx";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,7 +27,9 @@ function App() {
         height: "100vh",
       }}
     >
+      <Toaster />
       <IdProvider>
+        {/* <Toaster /> */}
         <RouterProvider router={router} />
       </IdProvider>
     </Box>

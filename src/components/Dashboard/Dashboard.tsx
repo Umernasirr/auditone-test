@@ -20,27 +20,29 @@ const Dashboard = () => {
   }, [id]);
 
   return (
-    <Box>
-      <Layout>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <MemberStatus id={id} />
-          </Grid>
+    id !== "" && (
+      <Box>
+        <Layout>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <MemberStatus id={id} />
+            </Grid>
 
-          <Grid item xs={12} md={6}>
-            <TokenStatus id={id} />
-          </Grid>
+            <Grid item xs={12} md={6}>
+              <TokenStatus id={id} />
+            </Grid>
 
-          <Grid item xs={12} md={6}>
-            <CollectionStatus id={id} />
-          </Grid>
+            <Grid item xs={12} md={6}>
+              <CollectionStatus id={id} />
+            </Grid>
 
-          <Grid item xs={12} md={6}>
-            <SpaceStatus id={id} />
+            <Grid item xs={12} md={6}>
+              <SpaceStatus id={id} />
+            </Grid>
           </Grid>
-        </Grid>
-      </Layout>
-    </Box>
+        </Layout>
+      </Box>
+    )
   );
 };
 

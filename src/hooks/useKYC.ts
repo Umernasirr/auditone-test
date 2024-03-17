@@ -1,4 +1,5 @@
 import KYC from "../api/utils/kyc/kyc.ts";
+import toast from "react-hot-toast";
 
 const useKYC = () => {
   const getKycStatusOfSpace = async (id: string) => {
@@ -7,7 +8,7 @@ const useKYC = () => {
 
       return data;
     } catch (e) {
-      console.log(e, "error");
+      console.log(e.message);
     }
   };
   const getKycStatusOfToken = async (id: string) => {
@@ -16,7 +17,7 @@ const useKYC = () => {
 
       return data;
     } catch (e) {
-      console.log(e, "error");
+      console.log(e.message);
     }
   };
   const getKycStatusOfCollection = async (id: string) => {
@@ -25,18 +26,16 @@ const useKYC = () => {
 
       return data;
     } catch (e) {
-      console.log(e, "error");
+      console.log(e.message);
     }
   };
   const getKycStatusOfMember = async (id: string) => {
     try {
       const data = await KYC().getKycStatusOfMember(id);
 
-      console.log(data, "data2");
-
       return data;
     } catch (e) {
-      console.log(e, "error");
+      console.log(e.message);
     }
   };
 
