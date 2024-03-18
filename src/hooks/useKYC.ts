@@ -1,5 +1,4 @@
 import KYC from "../api/utils/kyc/kyc.ts";
-import toast from "react-hot-toast";
 
 const useKYC = () => {
   const getKycStatusOfSpace = async (id: string) => {
