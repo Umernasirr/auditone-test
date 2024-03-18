@@ -31,7 +31,6 @@ function App() {
       <Toaster />
       <CookiesProvider>
         <IdProvider>
-          {/* <Toaster /> */}
           <RouterProvider router={router} />
         </IdProvider>
       </CookiesProvider>
