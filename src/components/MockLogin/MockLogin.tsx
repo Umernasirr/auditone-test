@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import { useIdContext } from "./IdContext";
 import { Box, TextField, Button, Grid, Typography } from "@mui/material";
 import { useId } from "../../Context/IdContext.tsx";
+import { useCookies } from "react-cookie";
 
 const MockLogin = () => {
+  const [cookieId, setCookieId] = useCookies(["id"]);
+
   const [inputId, setInputId] = useState("test");
   const { setId } = useId();
   const navigate = useNavigate();
@@ -12,7 +15,17 @@ const MockLogin = () => {
   const handleLogin = () => {
     setId(inputId);
     navigate("/dashboard");
+    setCookieId("id", inputId, { path: "/" });
   };
+
+  useEffect(() => {
+    if (cookieId.id && cookieId.id !== "") {
+      setId(cookieId.id);
+      navigate("/dashboard");
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cookieId]);
 
   return (
     <Box

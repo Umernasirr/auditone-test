@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MockLogin from "./components/MockLogin/MockLogin.tsx";
 import { IdProvider } from "./Context/IdContext.tsx";
 import { Toaster } from "react-hot-toast";
+import { CookiesProvider } from "react-cookie";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,10 +29,12 @@ function App() {
       }}
     >
       <Toaster />
-      <IdProvider>
-        {/* <Toaster /> */}
-        <RouterProvider router={router} />
-      </IdProvider>
+      <CookiesProvider>
+        <IdProvider>
+          {/* <Toaster /> */}
+          <RouterProvider router={router} />
+        </IdProvider>
+      </CookiesProvider>
     </Box>
   );
 }

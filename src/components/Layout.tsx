@@ -2,14 +2,18 @@ import * as React from "react";
 import { AppBar, Toolbar, Typography, Container, Button } from "@mui/material";
 import { useId } from "../Context/IdContext.tsx";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Layout = ({ children }) => {
   const { setId } = useId();
   const navigate = useNavigate();
+  const [_, setCookieId] = useCookies(["id"]);
 
   const handleLogout = () => {
     setId("");
     navigate("/");
+    // removing login cookie
+    setCookieId("id", null, { path: "/" });
   };
   return (
     <>

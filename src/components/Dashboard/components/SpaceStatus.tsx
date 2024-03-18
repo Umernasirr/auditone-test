@@ -31,13 +31,13 @@ const SpaceStatus = ({ id }) => {
         </Typography>
 
         {!data ? (
-          <Typography>Not Found...</Typography>
+          <Typography color="gray">Not Found...</Typography>
         ) : (
           <>
             <Typography variant="body1">ID: {data.id}</Typography>
             <Typography
               variant="body1"
-              color={data.status.label === "Started" ? "green" : "red"}
+              color={data.status.label === "Not Started" ? "red" : "green"}
             >
               Status: {data.status.label}
             </Typography>
